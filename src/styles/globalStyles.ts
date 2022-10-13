@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import oc from 'open-color';
 import reset from 'styled-reset';
 
 const GlobalStyles = createGlobalStyle`
@@ -7,10 +8,7 @@ const GlobalStyles = createGlobalStyle`
       box-sizing: border-box;
     }
     body {
-      display: flex;
-      justify-content: center;
-      max-width: 1280px;
-      margin: 100px auto;
+      background-color: ${oc.gray[7]};
     }
     a {
         text-decoration: none;

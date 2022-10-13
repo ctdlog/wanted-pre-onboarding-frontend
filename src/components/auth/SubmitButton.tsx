@@ -12,6 +12,7 @@ const Button = styled.button<{ color: string }>`
   font-weight: 500;
   user-select: none;
   transition: 0.2s all;
+  border-radius: 4px;
   :disabled {
     cursor: revert;
     opacity: 0.2;

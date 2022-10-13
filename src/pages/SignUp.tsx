@@ -14,15 +14,19 @@ interface IProps {
 const SignUp = ({ setIsLoginPage }: IProps) => {
   const [email, handleChangeEmail] = useInput('');
   const [password, handleChangePassword] = useInput('');
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const result = await signUpRequest({ email, password });
-    localStorage.setItem('access_token', result?.data.access_token);
-  };
+  const isActive = isValidEmailAndPassword({ email, password });
   const moveLoginPage = () => {
     setIsLoginPage(true);
   };
-  const isActive = isValidEmailAndPassword({ email, password });
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const result = await signUpRequest({ email, password });
+    if (result) {
+      alert('회원가입에 성공하였습니다!');
+      moveLoginPage();
+      localStorage.setItem('access_token', result.data.access_token);
+    }
+  };
   return (
     <>
       <AuthForm onSubmit={handleSubmit}>

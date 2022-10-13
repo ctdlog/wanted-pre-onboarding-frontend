@@ -16,7 +16,8 @@ const Label = styled.div`
 const Input = styled.input`
   width: 100%;
   border: 1px solid ${oc.gray[3]};
-  line-height: 2.5rem;
+  border-radius: 4px;
+  line-height: 40px;
   font-size: 16px;
   padding: 4px 16px;
 `;

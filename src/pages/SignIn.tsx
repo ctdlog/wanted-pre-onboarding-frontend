@@ -20,8 +20,9 @@ const SignIn = ({ setIsLoginPage }: IProps) => {
     event.preventDefault();
     const result = await signInRequest({ email, password });
     if (result) {
+      alert('로그인 하였습니다.');
       navigate('/todo');
-      localStorage.setItem('access_token', result?.data.access_token);
+      localStorage.setItem('access_token', result.data.access_token);
     }
   };
   const moveSignupPage = () => {
