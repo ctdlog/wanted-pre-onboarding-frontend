@@ -14,7 +14,7 @@ export const getTodosRequest = async () => {
 
 export const createTodoRequest = async (newTodo: string) => {
   try {
-    return await axios.post('todos', { todo: newTodo }, { headers });
+    return await instance.post('todos', { todo: newTodo }, { headers });
   } catch (error) {
     alertErrorMessage(
       error,
@@ -33,7 +33,11 @@ export const updateTodoRequest = async ({
   isCompleted: boolean;
 }) => {
   try {
-    return await axios.put(`todos/${id}`, { todo, isCompleted }, { headers });
+    return await instance.put(
+      `todos/${id}`,
+      { todo, isCompleted },
+      { headers }
+    );
   } catch (error) {
     alertErrorMessage(
       error,
@@ -44,7 +48,7 @@ export const updateTodoRequest = async ({
 
 export const deleteTodoRequest = async (id: number) => {
   try {
-    return await axios.delete(`todos/${id}`);
+    return await instance.delete(`todos/${id}`);
   } catch (error) {
     alertErrorMessage(
       error,

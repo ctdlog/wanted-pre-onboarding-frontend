@@ -19,7 +19,9 @@ const TodoHeader = ({ count }: { count: number }) => {
   return (
     <TodoHeaderWrapper>
       <h1>오늘의 할 일</h1>
-      <div className='count'>{count}개 남았습니다!</div>
+      <div className='count'>
+        {count ? `${count}개 남았습니다!` : '오늘의 할 일이 없습니다.'}
+      </div>
     </TodoHeaderWrapper>
   );
 };
