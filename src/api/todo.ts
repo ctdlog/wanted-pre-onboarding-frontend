@@ -1,4 +1,5 @@
 import { customAxios } from '../lib/customAxios';
+import { alertErrorMessage } from '../util/alertErrorMessage';
 
 const headers = { 'Content-Type': 'application/json' };
 
@@ -6,7 +7,7 @@ export const getTodosRequest = async () => {
   try {
     return await customAxios.get('todos', { headers });
   } catch (error) {
-    console.error(error);
+    alertErrorMessage(error);
   }
 };
 
@@ -14,7 +15,7 @@ export const createTodoRequest = async (newTodo: string) => {
   try {
     return await customAxios.post('todos', { todo: newTodo }, { headers });
   } catch (error) {
-    console.error(error);
+    alertErrorMessage(error);
   }
 };
 
@@ -34,7 +35,7 @@ export const updateTodoRequest = async ({
       { headers }
     );
   } catch (error) {
-    console.error(error);
+    alertErrorMessage(error);
   }
 };
 
@@ -42,6 +43,6 @@ export const deleteTodoRequest = async (id: number) => {
   try {
     return await customAxios.delete(`todos/${id}`, { headers });
   } catch (error) {
-    console.error(error);
+    alertErrorMessage(error);
   }
 };
