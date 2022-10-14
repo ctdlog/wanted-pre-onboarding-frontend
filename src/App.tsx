@@ -6,7 +6,7 @@ import GlobalStyles from './styles/globalStyles';
 
 const App = () => {
   return (
-    <Router>
+    <Router basename='/wanted-pre-onboarding-frontend'>
       <GlobalStyles />
       <AppLayout>
         <Routes>
