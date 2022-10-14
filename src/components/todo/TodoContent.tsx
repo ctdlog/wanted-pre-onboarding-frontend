@@ -5,6 +5,10 @@ import TodoItem from './TodoItem';
 const TodoContentContainer = styled.div`
   padding: 40px;
   overflow-y: scroll;
+  -ms-overflow-style: none;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 interface IProps {

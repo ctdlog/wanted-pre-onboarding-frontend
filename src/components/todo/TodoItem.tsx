@@ -28,25 +28,34 @@ const Icons = styled.div`
   }
 `;
 
+const TodoItemWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 16px 0;
+  &:hover {
+    ${Icons} {
+      display: initial;
+    }
+  }
+`;
+
 const DisplayIcons = styled(Icons)`
   display: block;
-  margin-right: auto;
+  .edit_icon,
+  .cancel_icon {
+    width: 32px;
+    height: 32px;
+    padding: 2px;
+    border-radius: 4px;
+    &:hover {
+      background: ${oc.gray[3]};
+    }
+  }
   .edit_icon {
     color: ${oc.green[7]};
   }
   .cancel_icon {
     color: ${oc.pink[7]};
-  }
-`;
-
-const TodoItemWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  padding: 20px 0;
-  &:hover {
-    ${Icons} {
-      display: initial;
-    }
   }
 `;
 
