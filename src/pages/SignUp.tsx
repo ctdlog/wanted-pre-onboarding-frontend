@@ -23,7 +23,6 @@ const SignUp = ({ setIsLoginPage }: IProps) => {
     const result = await signUpRequest({ email, password });
     if (result) {
       alert('회원가입에 성공하였습니다!');
-      localStorage.setItem('access_token', result.data.access_token);
       moveLoginPage();
     }
   };

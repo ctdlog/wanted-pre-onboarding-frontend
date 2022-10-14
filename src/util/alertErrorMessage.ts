@@ -1,14 +1,4 @@
-interface CustomError {
-  response: {
-    data: {
-      message: string;
-      statusCode: number;
-    };
-  };
-}
-
-export const alertErrorMessage = (error: unknown) => {
+export const alertErrorMessage = (error: unknown, message: string) => {
   console.error(error);
-  const { response } = error as CustomError;
-  alert(response.data.message);
+  alert(message);
 };

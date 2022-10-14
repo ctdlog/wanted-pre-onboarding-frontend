@@ -15,18 +15,19 @@ export interface ITodoInfo {
 const TodoList = () => {
   const navigate = useNavigate();
   const [todos, setTodos] = useState<ITodoInfo[]>([]);
-  const remainingTodos = todos.filter(
+  const remainingTodos = todos?.filter(
     (todo) => todo.isCompleted === false
   ).length;
   useEffect(() => {
     if (!localStorage.getItem('access_token')) {
       navigate('/');
+      return;
     }
-    (async () => {
+    async function getAndSetTodos() {
       const todosRequestResult = await getTodosRequest();
       setTodos(todosRequestResult?.data);
-      console.log(todos);
-    })();
+    }
+    getAndSetTodos();
   }, []);
   return (
     <>

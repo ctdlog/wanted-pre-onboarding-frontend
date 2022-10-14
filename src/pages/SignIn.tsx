@@ -20,8 +20,7 @@ const SignIn = ({ setIsLoginPage }: IProps) => {
     event.preventDefault();
     const result = await signInRequest({ email, password });
     if (result) {
-      alert('로그인 하였습니다.');
-      localStorage.setItem('access_token', result.data.access_token);
+      alert('정상적으로 로그인에 성공했습니다.');
       navigate('/todo');
     }
   };
