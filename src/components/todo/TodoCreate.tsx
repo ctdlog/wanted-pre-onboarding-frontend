@@ -29,6 +29,9 @@ const TodoCreate = ({ setTodos }: IProps) => {
   const [newTodo, handleChangeNewTodo, setNewTodo] = useInput('');
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (newTodo === '') {
+      return alert('내용을 입력해주세요.');
+    }
     const result = await createTodoRequest(newTodo);
     if (result) {
       setNewTodo('');
