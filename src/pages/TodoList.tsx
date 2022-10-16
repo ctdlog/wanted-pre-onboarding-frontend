@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { getTodosRequest } from '../api/todo';
 import TodoContent from '../components/todo/TodoContent';
 import TodoCreate from '../components/todo/TodoCreate';
@@ -13,16 +12,11 @@ export interface ITodoInfo {
 }
 
 const TodoList = () => {
-  const navigate = useNavigate();
   const [todos, setTodos] = useState<ITodoInfo[]>([]);
   const remainingTodos = todos?.filter(
     (todo) => todo.isCompleted === false
   ).length;
   useEffect(() => {
-    if (!localStorage.getItem('access_token')) {
-      navigate('/');
-      return;
-    }
     async function getAndSetTodos() {
       const todosRequestResult = await getTodosRequest();
       setTodos(todosRequestResult?.data);

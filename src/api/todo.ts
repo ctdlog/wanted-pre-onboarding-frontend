@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { alertErrorMessage } from '../util/alertErrorMessage';
 import { instance } from './axios.config';
 
