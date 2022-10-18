@@ -1,8 +1,6 @@
 import { alertErrorMessage } from '../util/alertErrorMessage';
 import { instance } from './axios.config';
 
-const headers = { 'Content-Type': 'application/json' };
-
 export const getTodosRequest = async () => {
   try {
     return await instance.get('todos');
@@ -13,7 +11,7 @@ export const getTodosRequest = async () => {
 
 export const createTodoRequest = async (newTodo: string) => {
   try {
-    return await instance.post('todos', { todo: newTodo }, { headers });
+    return await instance.post('todos', { todo: newTodo });
   } catch (error) {
     alertErrorMessage(
       error,
@@ -32,11 +30,7 @@ export const updateTodoRequest = async ({
   isCompleted: boolean;
 }) => {
   try {
-    return await instance.put(
-      `todos/${id}`,
-      { todo, isCompleted },
-      { headers }
-    );
+    return await instance.put(`todos/${id}`, { todo, isCompleted });
   } catch (error) {
     alertErrorMessage(
       error,

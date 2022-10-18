@@ -7,11 +7,9 @@ export interface IUserInfo {
   password: string;
 }
 
-const headers = { 'Content-Type': 'application/json' };
-
 export const signUpRequest = async (userInfo: IUserInfo) => {
   try {
-    const result = await instance.post('auth/signup', userInfo, { headers });
+    const result = await instance.post('auth/signup', userInfo);
     const { access_token } = result.data;
     setToken(access_token);
     return result;
@@ -22,9 +20,7 @@ export const signUpRequest = async (userInfo: IUserInfo) => {
 
 export const signInRequest = async (userInfo: IUserInfo) => {
   try {
-    const result = await instance.post('auth/signin', userInfo, {
-      headers,
-    });
+    const result = await instance.post('auth/signin', userInfo);
     const { access_token } = result.data;
     setToken(access_token);
     return result;

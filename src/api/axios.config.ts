@@ -7,7 +7,8 @@ export const instance: AxiosInstance = axios.create({
 
 instance.interceptors.request.use((request) => {
   if (request.headers) {
-    request.headers.authorization = `Bearer ${getToken()}`;
+    request.headers['authorization'] = `Bearer ${getToken()}`;
+    request.headers['Content-Type'] = 'application/json';
   }
   return request;
 });
